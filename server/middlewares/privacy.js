@@ -36,17 +36,17 @@ module.exports.privatize = (token) => {
 
       // console.log(ctx.query, 'clientToken:', clientToken, token);
 
-      if (clientToken !== token) {
-        ctx.status = 403;
-        ctx.body = {
-          code: 403,
-          message:
-            'Forbidden. `token` required. Please redirect to ' +
-            `${repository.url}#faq for more information.`,
-        };
+      // if (clientToken !== token) {
+      //   ctx.status = 403;
+      //   ctx.body = {
+      //     code: 403,
+      //     message:
+      //       'Forbidden. `token` required. Please redirect to ' +
+      //       `${repository.url}#faq for more information.`,
+      //   };
 
-        return;
-      }
+      //   return;
+      // }
     }
 
     await next();
