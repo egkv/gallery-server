@@ -234,9 +234,13 @@ async function choosePort(port) {
 }
 
 function getRelativeFiles(folder, predicate) {
-  return findAllFiles(folder, predicate).map((filePath) =>
-    path.relative(folder, filePath)
-  );
+  // return findAllFiles(folder, predicate).map((filePath) =>
+  //   path.relative(folder, filePath)
+  // );
+  return findAllFiles(folder, predicate)
+    .sort()    // Ensure a consistent baseline sort
+    .reverse() // Flip it to descending
+    .map((filePath) => path.relative(folder, filePath));
 }
 
 /**
